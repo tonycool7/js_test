@@ -7,7 +7,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/2.7.1/less.min.js"></script>
 </head>
 <body>
-<script src="/js/dialog.js"></script>
+<script src="/dist/bundle.js"></script>
 <script>
     var dialogue = new Dialog(
         document.getElementById('showDialogue'),

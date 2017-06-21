@@ -9,7 +9,7 @@
     <body>
     <button id="showDialogue" data-dialogue="coolDialogue">click me!</button>
     <div id="coolDialogue"></div>
-    <script src="/js/dialog.js"></script>
+    <script src="/dist/bundle.js"></script>
     <script>
         var dialogue = new Dialog(
             document.getElementById('showDialogue'),

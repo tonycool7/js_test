@@ -2,6 +2,8 @@
  * Created by root on 6/14/17.
  */
 //
+import "../css/dialog.less";
+
 function isEmpty(val){
     return (val === undefined || val == null || val.length <= 0) ? true : false;
 }
@@ -45,9 +47,7 @@ function Dialog(button, width, height, delay ,event, title, serverUrl, openFunct
     this.title = title;
     this.DOMCreated = false;
     this.dataLoaded = false;
-    (function () {
-        self.loadData();
-    })();
+    this.loadData();
 }
 
 Dialog.prototype = {
@@ -94,7 +94,7 @@ Dialog.prototype = {
 
     displayData : function(json) {
         var string = '';
-        for(prop in json){
+        for(var prop in json){
             string += '<p>Vehicle Model: '+prop+'\nPrice: '+json[prop]+'</p>';
         }
         document.getElementById('content').innerHTML = string;
@@ -145,6 +145,20 @@ Dialog.prototype = {
     },
 };
 
-// var inheritsFrom = function (child, parent) {
-//     child.prototype = Object.create(parent.prototype);
-// };
+var dialogue = new Dialog(
+    document.getElementById('showDialogue'),
+    500,
+    300,
+    .3,
+    'click',
+    'Modal Head',
+    '/data/data.php',
+    function () {
+        document.getElementById(document.getElementById('showDialogue').getAttribute('data-dialogue')).style.opacity = 1;
+    },
+    function () {
+        document.getElementById(document.getElementById('showDialogue').getAttribute('data-dialogue')).style.opacity = 0;
+    }
+);
+console.log(dialogue instanceof Dialog);
+console.log(dialogue.constructor);
